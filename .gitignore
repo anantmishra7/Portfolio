@@ -1,0 +1,9 @@
+# Large archives (exceeds GitHub's 100MB file limit)
+*.zip
+video_frames_30fps_png.zip
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

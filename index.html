@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anant Mishra | Software Engineer & AI Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Elegant minimal loading progress bar -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading Experience... <span id="loader-progress">0%</span></div>
+      <div class="loader-bar-bg">
+        <div id="loader-bar-fill" class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed background canvas animation -->
+  <div id="canvas-container">
+    <canvas id="animation-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+  </div>
+
+  <!-- Top Glassmorphic Navigation Bar -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-space">anant</span><span class="logo-edu">.dev</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link active" data-target="0">About</a>
+        <a href="#skills" class="nav-link" data-target="0.48">Skills</a>
+        <a href="#experience" class="nav-link" data-target="0.80">Experience</a>
+        <a href="#contact" class="nav-link" data-target="1.0">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-enroll" id="btn-enroll">Get in Touch</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Content Layers Choreographed to Scroll -->
+  <div class="ui-stage">
+    <!-- Section 1: Hero / About (Initial Scroll Phase) -->
+    <section id="section-hero" class="story-section active hero-left-aligned">
+      <div class="hero-content">
+        <span class="eyebrow">SOFTWARE DEVELOPER & AI ENTHUSIAST</span>
+        <h1 class="hero-title">Anant Mishra</h1>
+        <p class="hero-description">
+          I build things that think. Turning data, algorithms, and practical engineering into intelligent applications that solve real-world problems.
+        </p>
+        <div class="hero-cta-group">
+          <button class="btn-primary" id="btn-explore-work" data-target="0.48">EXPLORE SKILLS</button>
+          <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LINKEDIN</a>
+        </div>
+      </div>
+
+      <!-- Bottom Scroll Down Indicator -->
+      <button class="scroll-down-btn" id="scroll-down-btn" aria-label="Scroll Down" data-target="0.48">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <!-- Section 2: Skills & AI Stack (Mid-Scroll Phase) -->
+    <section id="section-skills" class="story-section">
+      <div class="hero-content skills-content">
+        <span class="eyebrow">CORE COMPETENCIES & EXPERTISE</span>
+        <h2 class="hero-title">SYSTEMS & AI</h2>
+        <p class="hero-description">
+          Where robust algorithmic design meets practical intelligence. Building dependable backends, machine learning workflows, and data pipelines.
+        </p>
+
+        <!-- Skill Badges -->
+        <div class="skills-grid">
+          <span class="skill-chip"><i class="chip-dot"></i>Java</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Python</span>
+          <span class="skill-chip"><i class="chip-dot"></i>SQL & DBMS</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Data Structures</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Systems Design</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Machine Learning</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Computer Vision</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Data Analytics</span>
+        </div>
+
+        <!-- Certifications Highlight -->
+        <div class="certifications-banner">
+          <span class="cert-item">Google AI Certified</span>
+          <span class="cert-divider">•</span>
+          <span class="cert-item">Azure Cognitive Services (CV)</span>
+          <span class="cert-divider">•</span>
+          <span class="cert-item">Google Gemini QuizOff 2026</span>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary" id="btn-view-exp" data-target="0.80">VIEW EXPERIENCE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Experience & Leadership (Deep-Scroll Phase) -->
+    <section id="section-experience" class="story-section">
+      <div class="hero-content">
+        <span class="eyebrow">LEADERSHIP & EDUCATION</span>
+        <h2 class="hero-title">EXPERIENCE</h2>
+        
+        <div class="experience-card">
+          <div class="exp-header">
+            <h3 class="exp-role">Campus Mantri</h3>
+            <span class="exp-org">@ GeeksforGeeks</span>
+          </div>
+          <span class="exp-duration">June 2026 – Present</span>
+          <p class="exp-desc">
+            Empowering students through technology, technical workshops, leadership, and community building as a GeeksforGeeks Campus Mantri.
+          </p>
+        </div>
+
+        <div class="education-badge">
+          <span class="edu-degree">B.Tech in Information Technology</span>
+          <span class="edu-school">Veer Bahadur Singh Purvanchal University (2024 – 2028)</span>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-primary">CONNECT ON LINKEDIN</a>
+          <button class="btn-secondary" data-target="1.0">CONTACT INFO</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Contact & Modern Footer (Final Scroll Phase) -->
+    <section id="section-footer" class="story-section footer-section">
+      <div class="hero-content footer-content">
+        <span class="eyebrow">GET IN TOUCH</span>
+        <h2 class="footer-title">LET'S BUILD TOGETHER</h2>
+        <p class="hero-description">
+          Open to connecting, collaborating, or discussing AI/ML, software engineering, and innovative tech ideas.
+        </p>
+
+        <div class="contact-cards-grid">
+          <a href="mailto:anantm408@gmail.com" class="contact-card">
+            <div class="contact-card-icon">✉</div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-val">anantm408@gmail.com</div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card-icon">in</div>
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-val">anantmishra07</div>
+          </a>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div class="contact-card-label">Location</div>
+            <div class="contact-card-val">Kanpur, UP, India</div>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div class="footer-bottom-row">
+            <span class="copyright">© 2026 Anant Mishra. All rights reserved.</span>
+            <button class="btn-back-to-top" id="btn-back-to-top" data-target="0">
+              ↑ Back to Top
+            </button>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <!-- Virtual scroll runway -->
+  <div id="scroll-track" class="scroll-track"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
