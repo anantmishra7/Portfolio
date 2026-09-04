@@ -23,33 +23,41 @@
       el: document.getElementById('section-hero'), 
       fadeInStart: 0.0, 
       fadeInEnd: 0.0, 
-      fadeOutStart: 0.16, 
-      fadeOutEnd: 0.28, 
+      fadeOutStart: 0.14, 
+      fadeOutEnd: 0.22, 
       navIndex: 0 
     },
     { 
       el: document.getElementById('section-skills'), 
-      fadeInStart: 0.32, 
-      fadeInEnd: 0.44, 
-      fadeOutStart: 0.58, 
-      fadeOutEnd: 0.68, 
+      fadeInStart: 0.20, 
+      fadeInEnd: 0.28, 
+      fadeOutStart: 0.38, 
+      fadeOutEnd: 0.46, 
       navIndex: 1 
     },
     { 
-      el: document.getElementById('section-experience'), 
-      fadeInStart: 0.70, 
-      fadeInEnd: 0.78, 
-      fadeOutStart: 0.88, 
-      fadeOutEnd: 0.94, 
+      el: document.getElementById('section-projects'), 
+      fadeInStart: 0.44, 
+      fadeInEnd: 0.52, 
+      fadeOutStart: 0.62, 
+      fadeOutEnd: 0.70, 
       navIndex: 2 
     },
     { 
+      el: document.getElementById('section-experience'), 
+      fadeInStart: 0.68, 
+      fadeInEnd: 0.76, 
+      fadeOutStart: 0.86, 
+      fadeOutEnd: 0.92, 
+      navIndex: 3 
+    },
+    { 
       el: document.getElementById('section-footer'), 
-      fadeInStart: 0.94, 
-      fadeInEnd: 0.99, 
+      fadeInStart: 0.92, 
+      fadeInEnd: 0.97, 
       fadeOutStart: 1.1, // Stays visible through end of scroll
       fadeOutEnd: 1.2, 
-      navIndex: 3 
+      navIndex: 4 
     }
   ];
 
