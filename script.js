@@ -133,16 +133,6 @@
     }
   }
 
-  function updateScrollTarget() {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    if (maxScroll <= 0) {
-      targetProgress = 0;
-    } else {
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      targetProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
-    }
-  }
-
   // Smooth UI Section Choreography
   function updateUISections(progress) {
     let activeNavIndex = 0;
@@ -428,12 +418,14 @@
 
     projectModal.classList.add('open');
     projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeProjectModal() {
     if (!projectModal) return;
     projectModal.classList.remove('open');
     projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 
   document.querySelectorAll('[data-modal]').forEach((btn) => {
