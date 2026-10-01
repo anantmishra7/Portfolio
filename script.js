@@ -186,6 +186,11 @@
       }
     });
 
+    // Trigger Stats Counter Animation when entering skills section
+    if (progress >= 0.18 && progress <= 0.45) {
+      triggerStatsCounter();
+    }
+
     // Update active nav link indicator
     navLinks.forEach((link, idx) => {
       if (idx === activeNavIndex) {
@@ -194,6 +199,53 @@
         link.classList.remove('active');
       }
     });
+  }
+
+  // Animated Stats Counter Logic
+  let statsAnimated = false;
+  function triggerStatsCounter() {
+    if (statsAnimated) return;
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (!statNumbers.length) return;
+
+    statsAnimated = true;
+    statNumbers.forEach((el) => {
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      const hasPlus = el.innerHTML.includes('+');
+      let count = 0;
+      const duration = 1400;
+      const increment = Math.max(1, Math.ceil(target / (duration / 25)));
+
+      const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+          count = target;
+          clearInterval(timer);
+        }
+        el.innerHTML = `${count}${hasPlus ? '<span>+</span>' : ''}`;
+      }, 25);
+    });
+  }
+
+  // Dynamic frame priority boosting on fast scroll
+  let lastScrollTime = Date.now();
+  let lastScrollProgress = 0;
+
+  function updateScrollTarget() {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll <= 0) {
+      targetProgress = 0;
+    } else {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      targetProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
+    }
+
+    // Prioritize frame downloading near current target frame
+    const targetFrame = Math.round(targetProgress * (TOTAL_FRAMES - 1));
+    if (!loadedFrames.has(targetFrame) && !pendingQueue.includes(targetFrame)) {
+      pendingQueue.unshift(targetFrame);
+      processQueue();
+    }
   }
 
   // Smooth Animation Render Loop
@@ -298,7 +350,168 @@
     });
   }
 
-  // Bind interactive triggers
+  // Project Modal Data & Interactivity
+  const projectDetailsData = {
+    'canvas-portfolio': {
+      tag: 'Interactive Web & Graphics',
+      title: '3D Canvas Portfolio Architecture',
+      description: 'A scroll-choreographed interactive personal portfolio website streaming 240 high-definition pre-rendered frames synchronized to high-frequency scroll input.',
+      highlights: [
+        '60 FPS frame interpolation engine with dynamic LERP smoothing',
+        'Glassmorphic UI layer with responsive CSS backdrop filters',
+        'Priority frame loading queue with fallback frame matching',
+        'Zero layout-shift virtual scroll runway architecture'
+      ],
+      tech: ['Canvas API', 'JavaScript ES6+', 'CSS Glassmorphism', 'HTML5', 'Netlify'],
+      github: 'https://github.com/anantmishra7/Portfolio'
+    },
+    'leetcode-dsa': {
+      tag: 'Algorithms & Competitive Programming',
+      title: 'My-LeetCode & Algorithmic Solutions',
+      description: 'Comprehensive repository containing optimized solution implementations for 350+ data structure and algorithm challenges.',
+      highlights: [
+        'Covering Dynamic Programming, Graph Theory, Trees & Backtracking',
+        'Optimized space and time complexity bounds in Modern C++',
+        'Structured categorization according to problem topics and difficulty levels',
+        'Used for competitive programming practice & technical interview readiness'
+      ],
+      tech: ['C++', 'Data Structures', 'Algorithms', 'Dynamic Programming', 'Git'],
+      github: 'https://github.com/anantmishra7/My-Leetcode'
+    },
+    'ai-sustainability': {
+      tag: 'Applied AI & Environmental ESG',
+      title: 'Applied AI Sustainability Engine',
+      description: 'Real-world AI project developed during the 1M1B Green Skills & Applied AI internship supported by Microsoft.',
+      highlights: [
+        'Applied machine learning & prompt engineering to analyze ESG carbon metrics',
+        'Designed sustainability assessment workflows for climate action',
+        'Completed 70+ hours of experiential learning & technical presentation',
+        'Integrated environmental data auditing with automated optimization suggestions'
+      ],
+      tech: ['Python', 'Prompt Engineering', 'Applied AI', 'ESG Analytics', 'Microsoft Tools'],
+      github: 'https://github.com/anantmishra7'
+    }
+  };
+
+  const projectModal = document.getElementById('project-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalTag = document.getElementById('modal-tag');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescription = document.getElementById('modal-description');
+  const modalHighlights = document.getElementById('modal-highlights');
+  const modalTech = document.getElementById('modal-tech');
+  const modalLinkGithub = document.getElementById('modal-link-github');
+
+  function openProjectModal(projectId) {
+    const data = projectDetailsData[projectId];
+    if (!data || !projectModal) return;
+
+    if (modalTag) modalTag.textContent = data.tag;
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalDescription) modalDescription.textContent = data.description;
+    
+    if (modalHighlights) {
+      modalHighlights.innerHTML = data.highlights
+        .map((h) => `<li>${h}</li>`)
+        .join('');
+    }
+
+    if (modalTech) {
+      modalTech.innerHTML = data.tech
+        .map((t) => `<span class="tech-badge">${t}</span>`)
+        .join('');
+    }
+
+    if (modalLinkGithub) {
+      modalLinkGithub.href = data.github;
+    }
+
+    projectModal.classList.add('open');
+    projectModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeProjectModal() {
+    if (!projectModal) return;
+    projectModal.classList.remove('open');
+    projectModal.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('[data-modal]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const modalId = btn.getAttribute('data-modal');
+      openProjectModal(modalId);
+    });
+  });
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeProjectModal);
+  }
+
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+      closeProjectModal();
+    }
+  });
+
+  // Toast Notification System
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3500);
+  }
+
+  // Interactive Quick Contact Form Handler
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('form-name')?.value.trim();
+      const email = document.getElementById('form-email')?.value.trim();
+      const subject = document.getElementById('form-subject')?.value.trim();
+      const message = document.getElementById('form-message')?.value.trim();
+
+      if (!name || !email || !message) {
+        showToast('Please fill out all required fields.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('btn-submit-form');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>SENDING...</span>';
+      }
+
+      // Simulate network request + construct mailto backup link
+      setTimeout(() => {
+        showToast(`Thank you, ${name}! Your message has been prepared.`);
+        
+        const mailtoUri = `mailto:anantm408@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        window.location.href = mailtoUri;
+
+        contactForm.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>SEND MESSAGE</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
+        }
+      }, 700);
+    });
+  }
+
+  // Bind interactive triggers for nav & CTA scroll buttons
   document.querySelectorAll('[data-target]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -330,3 +543,4 @@
   updateUISections(0);
   requestAnimationFrame(animate);
 })();
+

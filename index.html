@@ -43,6 +43,13 @@
       </nav>
 
       <div class="nav-actions">
+        <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-resume-nav" id="btn-resume-nav">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          Resume
+        </a>
         <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-enroll" id="btn-enroll">Get in Touch</a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
           <span></span>
@@ -65,6 +72,13 @@
         </p>
         <div class="hero-cta-group">
           <button class="btn-primary" id="btn-explore-work" data-target="0.28">EXPLORE SKILLS</button>
+          <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            RESUME
+          </a>
           <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LINKEDIN</a>
         </div>
       </div>
@@ -92,11 +106,35 @@
           <span class="skill-chip"><i class="chip-dot"></i>Java</span>
           <span class="skill-chip"><i class="chip-dot"></i>Python</span>
           <span class="skill-chip"><i class="chip-dot"></i>SQL & DBMS</span>
-          <span class="skill-chip"><i class="chip-dot"></i>Data Structures</span>
-          <span class="skill-chip"><i class="chip-dot"></i>Systems Design</span>
+          <span class="skill-chip"><i class="chip-dot"></i>JavaScript</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Data Structures & Algorithms</span>
           <span class="skill-chip"><i class="chip-dot"></i>Machine Learning</span>
           <span class="skill-chip"><i class="chip-dot"></i>Computer Vision</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Prompt Engineering</span>
           <span class="skill-chip"><i class="chip-dot"></i>Data Analytics</span>
+          <span class="skill-chip"><i class="chip-dot"></i>OOP & Systems Design</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Flask & REST APIs</span>
+          <span class="skill-chip"><i class="chip-dot"></i>Git / GitHub</span>
+        </div>
+
+        <!-- Live Stats Counter Grid -->
+        <div class="stats-counter-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-count="350">0<span>+</span></div>
+            <div class="stat-label">DSA & LeetCode Problems</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="15">0<span>+</span></div>
+            <div class="stat-label">GitHub Repositories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="70">0<span>+</span></div>
+            <div class="stat-label">Hours Applied AI Work</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label">Global Certifications</div>
+          </div>
         </div>
 
         <!-- Certifications Highlight -->
@@ -138,7 +176,7 @@
         <!-- Projects Grid -->
         <div class="projects-grid">
           <!-- Project 1: Canvas Portfolio -->
-          <div class="project-card">
+          <div class="project-card" data-project="canvas-portfolio">
             <div class="project-card-header">
               <span class="project-tag">Interactive Web</span>
               <a href="https://github.com/anantmishra7/Portfolio" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub" aria-label="GitHub Repository">
@@ -157,14 +195,17 @@
               <span class="tech-badge">CSS3</span>
             </div>
             <div class="project-card-footer">
+              <button class="btn-project-details" data-modal="canvas-portfolio">
+                Inspect Specs <span>🔍</span>
+              </button>
               <a href="https://github.com/anantmishra7/Portfolio" target="_blank" rel="noopener noreferrer" class="project-view-code">
-                View Repository <span>→</span>
+                Repository <span>→</span>
               </a>
             </div>
           </div>
 
           <!-- Project 2: My-Leetcode & DSA -->
-          <div class="project-card">
+          <div class="project-card" data-project="leetcode-dsa">
             <div class="project-card-header">
               <span class="project-tag">Algorithms & DSA</span>
               <a href="https://github.com/anantmishra7/My-Leetcode" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub" aria-label="GitHub Repository">
@@ -183,38 +224,41 @@
               <span class="tech-badge">DSA</span>
             </div>
             <div class="project-card-footer">
+              <button class="btn-project-details" data-modal="leetcode-dsa">
+                Inspect Specs <span>🔍</span>
+              </button>
               <a href="https://github.com/anantmishra7/My-Leetcode" target="_blank" rel="noopener noreferrer" class="project-view-code">
-                View Repository <span>→</span>
+                Repository <span>→</span>
               </a>
             </div>
           </div>
 
-          <!-- Project 3: Attached Resume & Background -->
-          <div class="project-card">
+          <!-- Project 3: AI Sustainability Engine -->
+          <div class="project-card" data-project="ai-sustainability">
             <div class="project-card-header">
-              <span class="project-tag">Official Resume</span>
-              <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open Resume PDF in New Tab" aria-label="Resume PDF">
+              <span class="project-tag">Applied AI & ESG</span>
+              <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Project Notes in Resume" aria-label="Resume PDF">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
                 </svg>
               </a>
             </div>
-            <h3 class="project-title"><a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer">Technical Resume</a></h3>
+            <h3 class="project-title">Applied AI Sustainability Engine</h3>
             <p class="project-desc">
-              Complete curriculum vitae detailing software development skills, Campus Mantri experience at GeeksforGeeks, and verified certifications.
+              1M1B & Microsoft supported project using prompt engineering and ML workflows to analyze environmental metrics & climate data.
             </p>
             <div class="project-tech-stack">
-              <span class="tech-badge">Java</span>
               <span class="tech-badge">Python</span>
-              <span class="tech-badge">SQL</span>
-              <span class="tech-badge">PDF</span>
+              <span class="tech-badge">Prompt Eng</span>
+              <span class="tech-badge">ESG Metrics</span>
             </div>
             <div class="project-card-footer">
+              <button class="btn-project-details" data-modal="ai-sustainability">
+                Inspect Specs <span>🔍</span>
+              </button>
               <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="project-view-code">
-                View / Download Resume <span>↗</span>
+                Details <span>↗</span>
               </a>
             </div>
           </div>
@@ -245,28 +289,114 @@
 
     <!-- Section 4: Experience & Leadership (Deep-Scroll Phase) -->
     <section id="section-experience" class="story-section">
-      <div class="hero-content">
-        <span class="eyebrow">LEADERSHIP & EDUCATION</span>
+      <div class="hero-content experience-content">
+        <span class="eyebrow">EXPERIENCE & LEADERSHIP</span>
         <h2 class="hero-title">EXPERIENCE</h2>
         
-        <div class="experience-card">
-          <div class="exp-header">
-            <h3 class="exp-role">Campus Mantri</h3>
-            <span class="exp-org">@ GeeksforGeeks</span>
+        <div class="experience-grid">
+          <!-- Experience 1: 1M1B Green Skills & Applied AI Intern -->
+          <div class="experience-card">
+            <div>
+              <div class="exp-card-top">
+                <div>
+                  <h3 class="exp-role-title">Green Skills & Applied AI Intern</h3>
+                  <span class="exp-company">1M1B (1 Million for 1 Billion)</span>
+                </div>
+                <span class="exp-badge">Remote</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  June 2026 – August 2026
+                </span>
+                <span class="exp-meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  1M1B & Microsoft
+                </span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Completed 70+ hours of experiential learning across Green Skills, applied AI frameworks, and ESG metrics in a virtual internship supported by 1M1B Foundation and Microsoft.</li>
+                <li>Developed and presented a real-world AI-enabled sustainability project aimed at measurable climate action.</li>
+                <li>Conducted sustainability audits and analyzed environmental data to identify optimization opportunities, applying AI models and prompt engineering.</li>
+              </ul>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Applied AI</span>
+              <span class="exp-tag">Green Skills</span>
+              <span class="exp-tag">ESG Metrics</span>
+              <span class="exp-tag">Prompt Engineering</span>
+              <span class="exp-tag">Microsoft</span>
+            </div>
           </div>
-          <span class="exp-duration">June 2026 – Present</span>
-          <p class="exp-desc">
-            Empowering students through technology, technical workshops, leadership, and community building as a GeeksforGeeks Campus Mantri.
-          </p>
+
+          <!-- Experience 2: GeeksforGeeks Campus Mantri -->
+          <div class="experience-card">
+            <div>
+              <div class="exp-card-top">
+                <div>
+                  <h3 class="exp-role-title">Campus Mantri</h3>
+                  <span class="exp-company">GeeksforGeeks</span>
+                </div>
+                <span class="exp-badge">Kanpur, India</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  June 2026 – Present
+                </span>
+                <span class="exp-meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  Campus Ambassador Program
+                </span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Represent GeeksforGeeks as a Campus Ambassador, driving awareness of coding culture, competitive programming, and placement-preparation resources across the university.</li>
+                <li>Plan and coordinate technical events, workshops, and coding contests to strengthen peer engagement with data structures & algorithms and interview readiness.</li>
+              </ul>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Campus Ambassador</span>
+              <span class="exp-tag">Technical Workshops</span>
+              <span class="exp-tag">DSA & Algorithms</span>
+              <span class="exp-tag">Community Leadership</span>
+            </div>
+          </div>
         </div>
 
         <div class="education-badge">
-          <span class="edu-degree">B.Tech in Information Technology</span>
-          <span class="edu-school">Veer Bahadur Singh Purvanchal University (2024 – 2028)</span>
+          <div class="edu-left">
+            <span class="edu-degree">Bachelor of Technology in Information Technology</span>
+            <span class="edu-school">Veer Bahadur Singh Purvanchal University, Jaunpur, Uttar Pradesh</span>
+          </div>
+          <span class="edu-year">Sept 2024 – May 2028</span>
         </div>
 
         <div class="hero-cta-group">
-          <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-primary">CONNECT ON LINKEDIN</a>
+          <a href="Anant_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            VIEW RESUME
+          </a>
+          <a href="https://www.linkedin.com/in/anantmishra07/" target="_blank" rel="noopener noreferrer" class="btn-secondary">CONNECT ON LINKEDIN</a>
           <button class="btn-secondary" data-target="1.0">CONTACT INFO</button>
         </div>
       </div>
@@ -280,6 +410,25 @@
         <p class="hero-description">
           Open to connecting, collaborating, or discussing AI/ML, software engineering, and innovative tech ideas.
         </p>
+
+        <!-- Quick Contact Form -->
+        <div class="quick-contact-box">
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="Your Name" required />
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="Your Email" required />
+            </div>
+            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Subject" required />
+            <textarea id="form-message" name="message" class="form-textarea" placeholder="Your Message..." rows="3" required></textarea>
+            <button type="submit" class="btn-primary btn-submit-form" id="btn-submit-form">
+              <span>SEND MESSAGE</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
 
         <div class="contact-cards-grid">
           <a href="mailto:anantm408@gmail.com" class="contact-card">
@@ -322,6 +471,32 @@
       </div>
     </section>
   </div>
+
+  <!-- Interactive Project Technical Details Modal -->
+  <div id="project-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <span id="modal-tag" class="project-tag">Category</span>
+        <h3 id="modal-title" class="modal-title">Project Title</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal-description" class="modal-description">Project overview...</p>
+        <div class="modal-section-title">TECHNICAL HIGHLIGHTS</div>
+        <ul id="modal-highlights" class="modal-highlights-list"></ul>
+        <div class="modal-section-title">TECH STACK</div>
+        <div id="modal-tech" class="project-tech-stack"></div>
+      </div>
+      <div class="modal-footer">
+        <a id="modal-link-github" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary modal-btn">
+          View GitHub Repo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast-notification">Message Sent Successfully!</div>
 
   <!-- Virtual scroll runway -->
   <div id="scroll-track" class="scroll-track"></div>
