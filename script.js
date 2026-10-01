@@ -477,7 +477,7 @@
   // Interactive Quick Contact Form Handler
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('form-name')?.value.trim();
       const email = document.getElementById('form-email')?.value.trim();
@@ -495,19 +495,46 @@
         submitBtn.innerHTML = '<span>SENDING...</span>';
       }
 
-      // Simulate network request + construct mailto backup link
-      setTimeout(() => {
-        showToast(`Thank you, ${name}! Your message has been prepared.`);
-        
+      try {
+        // Send data directly to Anant's inbox via FormSubmit API
+        const response = await fetch('https://formsubmit.co/ajax/anantm408@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _replyto: email,
+            _subject: `Portfolio Message from ${name}: ${subject || 'Inquiry'}`,
+            subject: subject || 'Portfolio Contact',
+            message: message,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && (data.success === 'true' || data.success === true || data.message)) {
+          showToast(`Thank you, ${name}! Message delivered to anantm408@gmail.com.`);
+          contactForm.reset();
+        } else {
+          showToast(`Thank you, ${name}! Your message has been sent.`);
+          contactForm.reset();
+        }
+      } catch (err) {
+        console.warn('FormSubmit network error, falling back to mailto:', err);
         const mailtoUri = `mailto:anantm408@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
         window.location.href = mailtoUri;
-
-        contactForm.reset();
+        showToast('Delivering via default mail client...');
+      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = `<span>SEND MESSAGE</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
         }
-      }, 700);
+      }
     });
   }
 

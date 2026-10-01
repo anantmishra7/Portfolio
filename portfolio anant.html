@@ -417,13 +417,15 @@
                 </p>
 
                 <div class="quick-contact-box">
-                    <form id="contact-form" class="contact-form" novalidate>
+                    <form id="contact-form" class="contact-form" action="https://formsubmit.co/anantm408@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
                         <div class="form-row">
-                            <input type="text" id="form-name" class="form-input" placeholder="Your Name *" required />
-                            <input type="email" id="form-email" class="form-input" placeholder="Your Email *" required />
+                            <input type="text" id="form-name" name="name" class="form-input" placeholder="Your Name *" required />
+                            <input type="email" id="form-email" name="email" class="form-input" placeholder="Your Email *" required />
                         </div>
-                        <input type="text" id="form-subject" class="form-input" placeholder="Subject (e.g. Internship Opportunity / Collaboration)" />
-                        <textarea id="form-message" class="form-textarea" placeholder="Your message here..." required></textarea>
+                        <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Subject (e.g. Internship Opportunity / Collaboration)" />
+                        <textarea id="form-message" name="message" class="form-textarea" placeholder="Your message here..." required></textarea>
                         <button type="submit" id="btn-submit-form" class="btn-primary btn-submit-form">
                             <span>SEND MESSAGE</span>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;">
